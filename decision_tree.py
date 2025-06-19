@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 try:
     df = pd.read_csv('heart.csv')
+    df.index = range(1, len(df) + 1)
     print("Dataset berhasil dimuat.")
     print("Ukuran dataset:", df.shape)
     print("\n5 baris pertama dataset:")
@@ -53,7 +54,8 @@ plt.show()
 
 print("\n--- Contoh Prediksi untuk Data Pasien Baru (Dummy) ---")
 
-new_patient_data = pd.DataFrame([[60, 1, 1, 140, 250, 0, 0, 150, 0, 1.0, 2, 0, 2]],
+#contoh inputan diambil dari dataset
+new_patient_data = pd.DataFrame([[52, 1, 0, 125, 212, 0, 1, 168, 0, 1.0, 2, 2, 3]],
                                   columns=X.columns)
 
 prediction = model.predict(new_patient_data)
